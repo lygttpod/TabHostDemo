@@ -6,7 +6,7 @@ package com.allen.tabhostdemo.bean;
 public class Campaign {
     private int id;
     private String title;
-    private String url;
+    private String imgUrl;
 
     public int getId() {
         return id;
@@ -24,11 +24,11 @@ public class Campaign {
         this.title = title;
     }
 
-    public String getUrl() {
-        return url;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

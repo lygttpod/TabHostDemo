@@ -75,7 +75,7 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onSuccess(Response response, List<HomeCampaign> homeCampaigns) {
                 mHomeCampaigns = homeCampaigns;
-                initRecyclerView();
+                initRecyclerView(mHomeCampaigns);
             }
 
             @Override
@@ -85,10 +85,10 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    private void initRecyclerView() {
+    private void initRecyclerView(List<HomeCampaign> homeCampaigns) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(layoutManager);
-        HomeCampaignAdapter adapter = new HomeCampaignAdapter();
+        HomeCampaignAdapter adapter = new HomeCampaignAdapter(homeCampaigns, getActivity());
         mRecyclerView.setAdapter(adapter);
     }
 
