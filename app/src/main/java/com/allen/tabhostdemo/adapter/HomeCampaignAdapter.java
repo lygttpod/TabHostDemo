@@ -1,7 +1,6 @@
 package com.allen.tabhostdemo.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,10 +37,15 @@ public class HomeCampaignAdapter extends RecyclerView.Adapter<HomeCampaignAdapte
     public void onBindViewHolder(HomeCampaignAdapter.ViewHolder holder, int position) {
         holder.title.setText(homeCampaigns.get(position).getTitle());
         HomeCampaign homeCampaign = homeCampaigns.get(position);
-
-        Picasso.with(mContext).load(homeCampaign.getCpTwo().getImgUrl()).into(holder.pic_left_up);
-        Picasso.with(mContext).load(homeCampaign.getCpThree().getImgUrl()).into(holder.pic_left_down);
-        Picasso.with(mContext).load(homeCampaign.getCpOne().getImgUrl()).into(holder.pic_right);
+        Picasso picasso = Picasso.with(mContext);
+        picasso.setLoggingEnabled(true);//查看log日志
+        picasso.setIndicatorsEnabled(true);
+        picasso.load(homeCampaign.getCpTwo().getImgUrl()).into(holder.pic_left_up);
+        picasso.load(homeCampaign.getCpThree().getImgUrl()).into(holder.pic_left_down);
+        picasso.load(homeCampaign.getCpOne().getImgUrl()).into(holder.pic_right);
+//        Picasso.with(mContext).setLoggingEnabled(true).setIndicatorsEnabled(true).load(homeCampaign.getCpTwo().getImgUrl()).into(holder.pic_left_up);
+//        Picasso.with(mContext).load(homeCampaign.getCpThree().getImgUrl()).into(holder.pic_left_down);
+//        Picasso.with(mContext).load(homeCampaign.getCpOne().getImgUrl()).into(holder.pic_right);
 
     }
 
